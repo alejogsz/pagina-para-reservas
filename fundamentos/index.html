@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas Universidad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <img src="logos/OIP.jpeg" alt="Logo Universidad" class="top-bar-logo">
+        <h2 class="top-bar-title">Udem - Sistema de Reservas</h2>
+    </div>
+
+    <!-- Contenedor de Inicio de Sesión -->
+    <div id="login-container" class="login-container">
+        <h1>Reservas Universidad</h1>
+        <img src="logos/OIP.jpeg" alt="Logo Universidad" class="university-logo">
+
+        <form onsubmit="showSpaces(event)">
+            <form id="login-form" method="post">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" required>
+            
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            
+                <button type="submit" class="login-btn">Ingresar</button>
+            </form>            
+            
+            <p class="or-text">o</p>
+
+            <a href="#" class="microsoft-login-btn" onclick="showSpaces(event)">
+                <img src="logos/28350-5-microsoft-logo-photos.png" alt="Microsoft Icon" class="microsoft-icon"> Ingresar con Microsoft
+            </a>
+        </form>
+    </div>
+
+    <!-- Contenedor de Selección de Espacios (oculto al inicio) -->
+    <div id="spaces-container" class="spaces-container" style="display: none;">
+        <h1>Selecciona un Espacio</h1>
+
+        <div class="space-card" onclick="showSchedule('Gimnasio')">
+            <img src="logos/Imagen de WhatsApp 2024-11-12 a las 14.54.04_70339208.jpg" alt="Gimnasio" class="space-image">
+            <h2>Gimnasio</h2>
+            <p>Accede al equipo y espacio ideal para entrenar y mantenerte en forma.</p>
+        </div>
+
+        <div class="space-card" onclick="showSchedule('Centro de Cómputo')">
+            <img src="logos/Imagen de WhatsApp 2024-11-12 a las 14.55.15_d70bdd01.jpg" alt="Centro de Cómputo" class="space-image">
+            <h2>Centro de Cómputo</h2>
+            <p>Solicita acceso a estaciones de trabajo equipadas con tecnología de última generación.</p>
+        </div>
+
+        <div class="space-card" onclick="showSchedule('Teatro')">
+            <img src="logos/teatro.jpeg" alt="Teatro" class="space-image">
+            <h2>Teatro</h2>
+            <p>Agenda el teatro para presentaciones, ensayos o eventos culturales.</p>
+        </div>
+
+        <div class="space-card" onclick="showSchedule('Coliseo')">
+            <img src="logos/Imagen de WhatsApp 2024-11-12 a las 14.52.26_b1b3890f.jpg" alt="Coliseo" class="space-image">
+            <h2>Coliseo</h2>
+            <p>Aparta el coliseo para actividades deportivas o eventos masivos.</p>
+        </div>
+
+        <div class="space-card" onclick="showSchedule('Biblioteca')">
+            <img src="logos/Imagen de WhatsApp 2024-11-12 a las 14.55.30_03a2930d.jpg" alt="Biblioteca" class="space-image">
+            <h2>Biblioteca</h2>
+            <p>Reserva salas de estudio, espacios de lectura o consulta de recursos bibliográficos.</p>
+        </div>
+
+        <div class="space-card" onclick="showSchedule('Piscina')">
+            <img src="logos/Imagen de WhatsApp 2024-11-12 a las 14.54.54_6fd7582d.jpg" alt="Piscina" class="space-image">
+            <h2>Piscina</h2>
+            <p>Reserva sesiones para practicar natación o disfrutar de actividades acuáticas en nuestras instalaciones.</p>
+        </div>
+
+    </div>
+
+    <div id="schedule-container" class="schedule-container" style="display: none;">
+        <h1 id="space-title">Horario de Disponibilidad</h1>
+        <div class="schedule-grid">
+            <div class="time-slot"onclick="reserveSlot('lleno')">no disponible</div>
+            <div class="availability unavailable">07:00</div>
+            <div class="time-slot">Lleno</div>
+            <div class="availability booked"onclick="reserveSlot('nadena')">09:00</div>
+            <div class="time-slot">canceladas</div>
+            <div class="availability canceled"onclick="reserveSlot('success')">11:00</div>
+            <div class="time-slot">En uso</div>
+            <div class="availability available"onclick="reserveSlot('nadena')">13:00</div>
+            <div class="time-slot">no disponible</div>
+            <div class="availability unavailable"onclick="reserveSlot('nadena')">15:00</div>
+            <div class="time-slot">Mantenimiento</div>
+            <div class="availability maintenance"onclick="reserveSlot('nadena')">17:00</div>
+            <div class="time-slot">no disponible</div>
+            <div class="availability low-space"onclick="reserveSlot('success')">21:00</div>
+            <div class="time-slot">poco espacio</div>
+            <div class="availability unavailable"onclick="reserveSlot('lleno')">23:00</div>
+        </div>
+        <button onclick="backToSpaces()" class="botoncito">Volver a los espacios</button>
+    
+    <!-- Modal de mensaje de reserva -->
+    <div id="reservationMessage" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p id="messageText"></p>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos generales */
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* Barra Superior */
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #d61a1a;
+    color: white;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.top-bar-logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.top-bar-title {
+    font-size: 1.5rem;
+}
+
+/* Contenedor de Login */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.university-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.login-container h1, .spaces-container h1 {
+    color: #e21818;
+    margin-bottom: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-btn {
+    padding: 0.8rem;
+    background-color: #de0c0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.or-text {
+    color: #333;
+    margin-top: 1rem;
+}
+
+.microsoft-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    background-color: #de0c0c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.microsoft-login-btn img.microsoft-icon {
+    width: auto;
+    height: 32px;
+    margin-right: 0.5rem;
+}
+
+/* Contenedor de Espacios */
+.spaces-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 20px;
+    padding-top: 80px;
+}
+
+/* Tarjetas de Espacios */
+.space-card {
+    background-color: rgba(249, 249, 249, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.space-card:hover {
+    background-color: rgba(249, 249, 249, 1);
+}
+
+.space-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.space-card h2 {
+    color: #b22222;
+    margin: 1rem 0 0.5rem;
+}
+
+.space-card p {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Contenedor de Horarios */
+.schedule-container {
+    padding: 20px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* Grilla de Horarios */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Colocar cada horario en una fila separada */
+    gap: 1px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.time-slot-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.time-slot {
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    width: 100px; /* Ajusta el ancho del contenedor de tiempo */
+    text-align: center;
+}
+
+.availability {
+    flex-grow: 1;
+    padding: 10px;
+    color: rgb(231, 223, 223);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 3rem;
+    margin:0.5rem;
+}
+.botoncito{
+    padding: 0.8rem;
+    background-color: #de0c0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+/* Colores para disponibilidad */
+.available { background-color: #ACE19F;color : black; } /* Verde para "En uso" */
+.booked { background-color: #C2AEEE;color : black; } /* Púrpura para "Lleno" */
+.low-space { background-color: #E1D69F; color: black; } /* Amarillo para "Poco espacio" */
+.maintenance { background-color: #9FCDE1; color : black; } /* Azul para "Mantenimiento" */
+.unavailable { background-color: #C4C4C4; color : black; } /* Gris para "No disponible" */
+.canceled { background-color: #E19F9F; color : black; } /* Rojo para "Canceladas" */
+
+/* Estilos para el modal de mensaje de reserva */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+#messageText {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
